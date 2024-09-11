@@ -56,15 +56,6 @@ st.sidebar.image("xyz.jpg")
 df = pd.DataFrame(np.random.randn(50, 20), columns=("col %d" % i for i in range(20)))
 st.dataframe(df)
 
-df = pd.DataFrame(
-    [
-       {"command": "st.selectbox", "rating": 4, "is_widget": True},
-       {"command": "st.balloons", "rating": 5, "is_widget": False},
-       {"command": "st.time_input", "rating": 3, "is_widget": True},
-   ]
-)
-edited_df = st.data_editor(df, num_rows="dynamic")
-
 
 df = pd.DataFrame(
     np.random.randn(10, 5), columns=("col %d" % i for i in range(5))
@@ -80,18 +71,14 @@ prompt = st.chat_input("Say something")
 if prompt:
     st.write(f"User has sent the following prompt: {prompt}")
     
-
-with st.chat_message("user"):
-    st.write("Hello 👋")
-    st.line_chart(np.random.randn(30, 3))
     
 
-with st.status("Downloading data..."):
-    st.write("Searching for data...")
-    time.sleep(2)
-    st.write("Found URL.")
+with st.status("Step 1"):
+    st.write("Step 2")
     time.sleep(1)
-    st.write("Downloading data...")
+    st.write("Step 3")
+    time.sleep(1)
+    st.write("Step 4")
     time.sleep(1)
 st.button("Rerun")
 
@@ -112,6 +99,9 @@ st.map(df)
 
 chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
 st.scatter_chart(chart_data)
+
+with st.chat_message("user"):
+    st.write("Hello ji")
 
 
 
